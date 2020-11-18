@@ -5,10 +5,8 @@
 </template>
 
 <script>
-import {UcButton} from '../components/index'
 
 export default {
-  name: "App",
-  components: {UcButton}
+  name: "App"
 }
 </script>
