@@ -1,13 +1,13 @@
 <template>
   <button
-      :disabled="type==='disabled'"
-      :class="['uc-btn',btnSize,btnType]"
+    :disabled="type==='disabled'"
+    :class="['uc-btn',btnSize,btnType]"
   >
-    <slot></slot>
+    <slot />
   </button>
 </template>
 <script lang="ts">
-import {defineComponent} from 'vue';
+import {defineComponent,computed} from 'vue';
 import {getSize} from "../_utils/getSize";
 import {getType} from "../_utils/getType";
 
@@ -23,13 +23,18 @@ export default defineComponent({
       default: 'default'
     },
   },
-  computed: {
-    btnSize() {
-      return `uc-btn-${getSize(this.size)}`
-    },
-    btnType() {
-      return `uc-btn-${getType(this.type)}`
+  setup(props, ctx) {
+    const btnSize = computed(() => {
+      return `uc-btn-${getSize(props.size)}`
+    })
+    const btnType = computed(() => {
+      return `uc-btn-${getType(props.type)}`
+    })
+
+    return {
+      btnSize,
+      btnType
     }
-  }
+  },
 })
 </script>
