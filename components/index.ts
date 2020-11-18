@@ -1,1 +1,2 @@
-export { default as UcButton } from './button'
+export {default} from './button/index'
+export {UcButton} from './button/index'

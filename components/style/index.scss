@@ -1,0 +1,31 @@
+$primary-color--1:#E6F7FF;
+$primary-color--2:#BAE7FF;
+$primary-color--3:#91D5FF;
+$primary-color--4:#69C0FF;
+$primary-color--5:#40A9FF;
+$primary-color--6:#1890FF;
+$primary-color--7:#096DD9;
+$primary-color--8:#0050B3;
+$primary-color--9:#003A8C;
+$primary-color--10:#002766;
+$prefix:uc;
+$font-size--sm:12px;
+$font-size--:14px;
+.rc-position{
+  position: absolute;
+  z-index: 99;
+  background: #fff;
+  box-shadow: 0 0 5px #ddd;
+}
+.rc-message{
+  position: fixed;
+  top: 0;
+  text-align: center;
+  width: 100%;
+}
+*{
+  box-sizing: border-box;
+}
+@function get-prefix-name($name) {
+  @return $prefix - $name;
+}
