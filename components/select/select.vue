@@ -1,14 +1,10 @@
 <template>
   <input ref="iptRef" @click="isShow=!isShow" type="text"/>
-  <options v-if="isShow">
-    <slot></slot>
-  </options>
 </template>
 
 <script>
-import {defineComponent, ref, onMounted, createVNode, render} from 'vue'
-import options from "./options";
-
+import {defineComponent, ref, onMounted, createVNode, render,h} from 'vue'
+import VcPosition from "./position";
 export default defineComponent({
   name: "UcSelect",
   setup(props, ctx) {
@@ -17,11 +13,12 @@ export default defineComponent({
     const modalRef = ref(null)
     onMounted(() => {
       const instance = document.createElement('div');
-      instance.className = 'uc-position';
+      instance.className = 'vc-position';
       document.body.appendChild(instance);
       const vm = createVNode(
-          options,
+          VcPosition,
           null,
+          ctx.slots.default()
       )
       render(vm, instance)
       const {top, left} = iptRef.value.getBoundingClientRect()
